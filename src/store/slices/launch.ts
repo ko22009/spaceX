@@ -1,13 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "./index";
-
-type Launch = {
-  name: string;
-  details: string;
-  date_utc: Date;
-  id: string;
-};
+import Launch from "../types/launch";
 
 export interface LaunchState {
   past: Launch[];
