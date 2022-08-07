@@ -1,17 +1,13 @@
 import { takeEvery, call, put, fork } from "redux-saga/effects";
 import * as api from "../../api";
 import {
-  bookingLaunchType,
   getDetailType,
   getFutureLaunchesType,
   getPastLaunchesType,
-  unBookingLaunchType,
 } from "../actions/launch";
 import {
   setFutureLaunches,
   setPastLaunches,
-  bookingLaunch,
-  unBookingLaunch,
   setLoading,
 } from "../slices/launch";
 import Launch from "../types/launch";
@@ -51,24 +47,6 @@ function* getLaunch(action: PayloadAction<{ id: string }>) {
   }
 }
 
-function* bookingLaunchGenerator(action: PayloadAction<Launch>) {
-  try {
-    const result: Launch = yield call(api.bookLaunch, action.payload);
-    yield put(bookingLaunch(result));
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-function* unBookingLaunchGenerator(action: PayloadAction<Launch>) {
-  try {
-    const result: Launch = yield call(api.unBookLaunch, action.payload);
-    yield put(unBookingLaunch(result));
-  } catch (error) {
-    console.error(error);
-  }
-}
-
 function* watchGetPastLaunches() {
   yield takeEvery(getPastLaunchesType, getPastLaunches);
 }
@@ -81,20 +59,10 @@ function* watchGetLaunch() {
   yield takeEvery(getDetailType, getLaunch);
 }
 
-function* watchBookingLaunchType() {
-  yield takeEvery(bookingLaunchType, bookingLaunchGenerator);
-}
-
-function* watchUnBookingLaunchType() {
-  yield takeEvery(unBookingLaunchType, unBookingLaunchGenerator);
-}
-
 const launchSagas = [
   fork(watchGetPastLaunches),
   fork(watchGetFutureLaunches),
   fork(watchGetLaunch),
-  fork(watchBookingLaunchType),
-  fork(watchUnBookingLaunchType),
 ];
 
 export default launchSagas;

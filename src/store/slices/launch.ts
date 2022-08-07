@@ -28,6 +28,9 @@ export const launch = createSlice({
       state.future = action.payload;
     },
     bookingLaunch: (state, action: PayloadAction<Launch>) => {
+      state.future = state.future.filter(
+        (launch) => launch.id != action.payload.id
+      );
       state.booking.push(action.payload);
     },
     setLoading: (state, action: PayloadAction<boolean>) => {

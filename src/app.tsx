@@ -12,6 +12,8 @@ import List from "./components/List";
 import Card from "./components/Card";
 import { Col, Row } from "antd";
 import { RocketOutlined } from "@ant-design/icons";
+import ListDroppable from "./components/ListDroppable";
+import { LaunchingType } from "./Constants";
 
 function App() {
   const dispatch = useDispatch();
@@ -36,12 +38,20 @@ function App() {
         </Col>
         <Col span={5}>
           <Card title="LAUNCHES">
-            <List listData={futureLaunches} loading={loading} />
+            <ListDroppable
+              listData={futureLaunches}
+              type={"future"}
+              loading={loading}
+            />
           </Card>
         </Col>
         <Col span={5}>
           <Card title="MY LAUNCHES">
-            <List listData={bookingLaunches} loading={loading} />
+            <ListDroppable
+              listData={bookingLaunches}
+              type={"booking"}
+              loading={loading}
+            />
           </Card>
         </Col>
       </Row>
