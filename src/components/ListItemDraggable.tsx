@@ -5,6 +5,7 @@ import Moment from "moment";
 import Launch from "../store/types/launch";
 import { bookingLaunch, unBookingLaunch } from "../store/slices/launch";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
 type ListItemProps = {
   item: Launch;
@@ -46,7 +47,11 @@ const ListItemDraggable = ({ item, type }: ListItemProps) => {
     >
       <ListAntd.Item.Meta
         avatar={<Avatar src={item.links.patch.small} />}
-        title={item.name}
+        title={
+          <Link style={{ color: "#1890ff" }} to={`/${type}/${item.id}`}>
+            {item.name}
+          </Link>
+        }
         description={
           <>
             <b>{Moment(item.date_utc).format("D MMM YYYY")}</b>

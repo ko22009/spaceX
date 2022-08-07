@@ -13,7 +13,6 @@ import Card from "./components/Card";
 import { Col, Row } from "antd";
 import { RocketOutlined } from "@ant-design/icons";
 import ListDroppable from "./components/ListDroppable";
-import { LaunchingType } from "./Constants";
 
 function App() {
   const dispatch = useDispatch();
