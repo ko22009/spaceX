@@ -14,9 +14,11 @@ const List = ({ listData, loading }: ListProps) => {
       size="large"
       dataSource={listData}
       renderItem={(item) => (
-        <Skeleton key={item.name} loading={loading} active avatar>
-          <ListItem item={item} />
-        </Skeleton>
+        <ListAntd.Item key={item.name}>
+          <Skeleton loading={loading} active avatar>
+            <ListItem item={item} />
+          </Skeleton>
+        </ListAntd.Item>
       )}
     />
   );

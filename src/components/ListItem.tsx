@@ -8,7 +8,7 @@ type ListItemProps = {
 
 const ListItem = ({ item }: ListItemProps) => {
   return (
-    <ListAntd.Item>
+    <div>
       <ListAntd.Item.Meta
         avatar={<Avatar src={item.links.patch.small} />}
         title={item.name}
@@ -20,7 +20,7 @@ const ListItem = ({ item }: ListItemProps) => {
           </>
         }
       />
-    </ListAntd.Item>
+    </div>
   );
 };
 

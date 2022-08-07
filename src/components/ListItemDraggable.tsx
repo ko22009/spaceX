@@ -35,7 +35,7 @@ const ListItemDraggable = ({ item, type }: ListItemProps) => {
     },
   }));
   return (
-    <ListAntd.Item
+    <div
       style={{
         opacity: isDragging ? 0.5 : 1,
         fontSize: 25,
@@ -55,7 +55,7 @@ const ListItemDraggable = ({ item, type }: ListItemProps) => {
           </>
         }
       />
-    </ListAntd.Item>
+    </div>
   );
 };
 

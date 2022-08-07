@@ -30,9 +30,11 @@ const ListDroppable = ({ listData, loading, type }: ListProps) => {
         size="large"
         dataSource={listData}
         renderItem={(item) => (
-          <Skeleton key={item.name} loading={loading} active avatar>
-            <ListItemDraggable type={type} item={item} />
-          </Skeleton>
+          <ListAntd.Item key={item.name}>
+            <Skeleton loading={loading} active avatar>
+              <ListItemDraggable type={type} item={item} />
+            </Skeleton>
+          </ListAntd.Item>
         )}
       />
     </div>
