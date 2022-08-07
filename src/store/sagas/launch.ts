@@ -12,6 +12,7 @@ import {
   setPastLaunches,
   bookingLaunch,
   unBookingLaunch,
+  setLoading,
 } from "../slices/launch";
 import Launch from "../types/launch";
 import { setData } from "../slices/detail";
@@ -19,10 +20,13 @@ import { PayloadAction } from "@reduxjs/toolkit";
 
 function* getPastLaunches() {
   try {
+    yield put(setLoading(true));
     const response: Response = yield call(api.getPastLaunches);
     const result: Launch[] = yield response.json();
+    yield put(setLoading(false));
     yield put(setPastLaunches(result));
   } catch (error) {
+    yield put(setLoading(false));
     console.error(error);
   }
 }

@@ -6,9 +6,7 @@ import RootReducer from "./slices";
 
 const sagaMiddleware = createSagaMiddleware();
 const store = configureStore({
-  reducer: {
-    reducer: RootReducer,
-  },
+  reducer: RootReducer,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: false,

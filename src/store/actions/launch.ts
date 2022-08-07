@@ -6,15 +6,15 @@ export const getDetailType = "getDetailType";
 export const bookingLaunchType = "bookingLaunchType";
 export const unBookingLaunchType = "unBookingLaunchType";
 
-export const getPastLaunches = () => ({
+export const fetchPastLaunches = () => ({
   type: getPastLaunchesType,
 });
 
-export const getFutureLaunches = () => ({
+export const fetchFutureLaunches = () => ({
   type: getFutureLaunchesType,
 });
 
-export const getDetail = (id: string) => ({
+export const fetchDetail = (id: string) => ({
   type: getDetailType,
   id,
 });

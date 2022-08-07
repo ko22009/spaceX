@@ -7,12 +7,14 @@ export interface LaunchState {
   past: Launch[];
   future: Launch[];
   booking: Launch[];
+  loading: boolean;
 }
 
 const initialState: LaunchState = {
   past: [],
   future: [],
   booking: [],
+  loading: false,
 };
 
 export const launch = createSlice({
@@ -27,6 +29,9 @@ export const launch = createSlice({
     },
     bookingLaunch: (state, action: PayloadAction<Launch>) => {
       state.booking.push(action.payload);
+    },
+    setLoading: (state, action: PayloadAction<boolean>) => {
+      state.loading = action.payload;
     },
     unBookingLaunch(state, action: PayloadAction<Launch>) {
       state.booking = state.booking.filter(
@@ -46,9 +51,11 @@ export const {
   setFutureLaunches,
   bookingLaunch,
   unBookingLaunch,
+  setLoading,
 } = launch.actions;
 export const getPastLaunches = (state: RootState) => state.launch.past;
 export const getFutureLaunches = (state: RootState) => state.launch.future;
 export const getBookingLaunch = (state: RootState) => state.launch.booking;
+export const getLoading = (state: RootState) => state.launch.loading;
 
 export default launch.reducer;
