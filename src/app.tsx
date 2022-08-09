@@ -7,7 +7,7 @@ import {
   getFutureLaunches,
   getLoading,
   getPastLaunches,
-} from "./store/slices/launch";
+} from "./store/slices/launchSlice";
 import List from "./components/List";
 import Card from "./components/Card";
 import { Col, Row } from "antd";

@@ -5,7 +5,7 @@ import {
   setFutureLaunches,
   setPastLaunches,
   setLoading,
-} from "../slices/launch";
+} from "../slices/launchSlice";
 import Launch from "../types/launch";
 
 function* getPastLaunches() {

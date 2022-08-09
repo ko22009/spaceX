@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-import { RootState } from "./index";
 import Launch from "../types/launch";
+import { RootState } from "../index";
 
 export interface LaunchState {
   past: Launch[];
@@ -17,7 +17,7 @@ const initialState: LaunchState = {
   loading: false,
 };
 
-export const launch = createSlice({
+export const launchSlice = createSlice({
   name: "launch",
   initialState,
   reducers: {
@@ -55,10 +55,10 @@ export const {
   bookingLaunch,
   unBookingLaunch,
   setLoading,
-} = launch.actions;
+} = launchSlice.actions;
 export const getPastLaunches = (state: RootState) => state.launch.past;
 export const getFutureLaunches = (state: RootState) => state.launch.future;
 export const getBookingLaunch = (state: RootState) => state.launch.booking;
 export const getLoading = (state: RootState) => state.launch.loading;
 
-export default launch.reducer;
+export default launchSlice.reducer;

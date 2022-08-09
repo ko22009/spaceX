@@ -3,7 +3,7 @@ import { ItemTypes, LaunchingType } from "../Constants";
 import { Avatar, List as ListAntd } from "antd";
 import Moment from "moment";
 import Launch from "../store/types/launch";
-import { bookingLaunch, unBookingLaunch } from "../store/slices/launch";
+import { bookingLaunch, unBookingLaunch } from "../store/slices/launchSlice";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
@@ -14,7 +14,7 @@ type ListItemProps = {
 
 type DropResult = {
   dropEffect: string;
-  type: string;
+  type: LaunchingType;
 };
 
 const ListItemDraggable = ({ item, type }: ListItemProps) => {
